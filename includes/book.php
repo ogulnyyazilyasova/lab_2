@@ -26,7 +26,8 @@ class Book
 
     public static function handleFileUpload()
     {
-        $uploadDir = '/uploads/pdf/';
+	    $upload = 'uploads/pdf/';
+        $uploadDir = __DIR__ . '/../' . $upload;
         if (!file_exists($uploadDir)) {
             mkdir($uploadDir, 0777, true);
         }
@@ -50,16 +51,16 @@ class Book
             $destination = $uploadDir . $filename;
 
             if (move_uploaded_file($file['tmp_name'], $destination)) {
-                return $destination;
+                return $upload . $filename;
             }
         }
         return null;
     }
 
     public static function initializeDatabase() {
-        self::createBooksTable();
         self::createCatalogsTable();
         self::insertCatalogs();
+        self::createBooksTable();
     }
 
     public static function createCatalogsTable()
@@ -68,7 +69,7 @@ class Book
             CREATE TABLE IF NOT EXISTS catalogs (
                 id INT PRIMARY KEY AUTO_INCREMENT,
                 name VARCHAR(255) NOT NULL UNIQUE
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         ";
         return Database::executeQuery($query);
     }
@@ -140,7 +141,7 @@ class Book
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 FOREIGN KEY (catalog) REFERENCES catalogs(name) ON DELETE SET NULL
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         ";
         return Database::executeQuery($query);
     }

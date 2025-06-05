@@ -41,10 +41,10 @@ include 'includes/header.php';
 								echo '';
 							} ?>">Книги</a></li>
                         <li><a href="/feedback.php" class="<?php if ($title === 'Форма обратной связи') {
-			                    echo 'active';
-		                    } else {
-			                    echo '';
-		                    } ?>">Форма обратной связи</a></li>
+								echo 'active';
+							} else {
+								echo '';
+							} ?>">Форма обратной связи</a></li>
                         <li><a href="/logout.php">Выйти</a></li>
 						<?php if (isset($_SESSION['user'])): ?>
                             <li>
@@ -80,7 +80,7 @@ include 'includes/header.php';
                         </div>
                         <div class="main-container">
                             <div class="row">
-		                        <?php foreach ($books as $book): ?>
+								<?php foreach ($books as $book): ?>
                                     <div class="col-lg-4 col-sm-4 mb-3">
                                         <div class="card-container align-items-center">
                                             <div class="card"
@@ -91,11 +91,9 @@ include 'includes/header.php';
                                                 </div>
                                                 <div class="card-body">
                                                     <h4 class="short-title" style="margin: 10px 0; font-size: 15px;">
-                                                        <!--                                                        <a href="#/book/-->
-								                        <?php //=$book['uuid']; ?><!--">-->
-								                        <?= $book['title']; ?> <i
-                                                                class="fa fa-up-right-from-square"></i>
-                                                        <!--                                                        </a>-->
+                                                        <a href="/view.php?uuid=<?= $book['uuid']; ?>">
+															<?= $book['title']; ?> <i class="fa fa-up-right-from-square"></i>
+                                                        </a>
                                                     </h4>
                                                     <span style="display: block; margin-bottom: 10px; color: #666;">Автор: <?= $book['author']; ?></span>
                                                     <span style="display: block; margin-bottom: 10px; color: #666;">Категория: <?= $book['catalog']; ?></span>
@@ -104,14 +102,14 @@ include 'includes/header.php';
                                                         Описание: <?= $book['about']; ?></p>
                                                     <!--                                                    <div class="main-button mb-3 mt-4" style="text-align: center;">-->
                                                     <!--                                                        <a href="#/book/-->
-							                        <?php //=$book['uuid']; ?><!--/edit"><i-->
+													<?php //=$book['uuid']; ?><!--/edit"><i-->
                                                     <!--                                                                    class="fa fa-edit"></i> Редактировать</a>-->
                                                     <!--                                                    </div>-->
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-		                        <?php endforeach; ?>
+								<?php endforeach; ?>
                             </div>
                         </div>
                     </div>

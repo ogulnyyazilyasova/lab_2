@@ -24,7 +24,7 @@ try {
 		);
 
 		if ($book->save()) {
-			echo "Книга успешно добавлена!";
+			header('Location: /admin/books.php');
 		}
 	}
 } catch (Exception $e) {

@@ -78,11 +78,9 @@ include '../includes/header.php';
                                                 </div>
                                                 <div class="card-body">
                                                     <h4 class="short-title" style="margin: 10px 0; font-size: 15px;">
-                                                        <!--                                                        <a href="#/book/-->
-														<?php //=$book['uuid']; ?><!--">-->
-														<?= $book['title']; ?> <i
-                                                                class="fa fa-up-right-from-square"></i>
-                                                        <!--                                                        </a>-->
+                                                        <a href="/admin/view.php?uuid=<?= $book['uuid']; ?>">
+															<?= $book['title']; ?> <i class="fa fa-up-right-from-square"></i>
+                                                        </a>
                                                     </h4>
                                                     <span style="display: block; margin-bottom: 10px; color: #666;">Автор: <?= $book['author']; ?></span>
                                                     <span style="display: block; margin-bottom: 10px; color: #666;">Категория: <?= $book['catalog']; ?></span>

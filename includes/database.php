@@ -6,7 +6,7 @@ class Database
         'host' => 'localhost',
         'user' => 'root',
         'password' => 'root',
-        'database' => 'books'
+        'database' => 'books2'
     ];
 
     /**
@@ -99,7 +99,7 @@ class Database
             'host' => getenv('DB_HOST') ?: 'localhost',
             'user' => getenv('DB_USER') ?: 'root',
             'password' => getenv('DB_PASSWORD') ?: 'root',
-            'database' => getenv('DB_NAME') ?: 'books'
+            'database' => getenv('DB_NAME') ?: 'books2'
         ];
     }
     
